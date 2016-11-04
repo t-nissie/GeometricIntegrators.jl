@@ -12,8 +12,8 @@
 # References:
 # Ref1. 奥村久士:『分子動力学シミュレーションにおける温度・圧力制御
 #       第2回:シンプレクティック分子動力学法と能勢・ポアンカレ熱浴』，
-#       分子シミュレーション研究会会誌《アンサンブル》(in Japanese).
-#       Vol.11, No.1, January 2009 (通巻45号)
+#       分子シミュレーション研究会会誌《アンサンブル》
+#       Vol.11, No.1, January 2009（通巻45号）(in Japanese).
 # Ref2. M. Tuckerman, B. J. Berne, and G. J. Martyna:
 #       "Reversible multiple time scale molecular dynamics",
 #       J. Chem. Phys. 97, 1990 (1992).
