@@ -95,7 +95,7 @@ end
 export euler, velocity_verlet, position_verlet, leapfrog, time_evolution
 end
 
-if PROGRAM_FILE == basename(@__FILE__)
+if isdefined(:PROGRAM_FILE) && PROGRAM_FILE == basename(@__FILE__)
    using MultipleTimeStepIntegrators
 
    function energy{T<:AbstractFloat}(q::Array{T,2},
