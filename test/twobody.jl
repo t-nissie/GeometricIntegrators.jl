@@ -26,4 +26,4 @@ plot(q[1,:],q[2,:],"r-", q[1,1:20:n],q[2,1:20:n],"ro",
      q[3,:],q[4,:],"g--",q[3,1:20:n],q[4,1:20:n],"gs")
 xlim(-5.0,7.0)
 ylim(-6.0,6.0)
-savefig("mts3.eps")
+savefig("twobody.eps")
