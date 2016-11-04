@@ -1,6 +1,7 @@
 #!/usr/bin/env julia
 ##
 using MultipleTimeStepIntegrators
+using Base.Test
 
 M = 2.0
 m = 1.0
@@ -19,11 +20,29 @@ t0 = 0.0
 h  = 0.1
 n  = 400
 
-t,q,p = time_evolution(position_verlet, qdot, pdot, q0, p0, t0, h, n)
+t_eu,q_eu,p_eu = time_evolution(          euler, qdot, pdot, q0, p0, t0, h, n)
+t_vv,q_vv,p_vv = time_evolution(velocity_verlet, qdot, pdot, q0, p0, t0, h, n)
+t_pv,q_pv,p_pv = time_evolution(position_verlet, qdot, pdot, q0, p0, t0, h, n)
+t_lf,q_lf,p_lf = time_evolution(       leapfrog, qdot, pdot, q0, p0, t0, h, n)
+
+@test_approx_eq_eps q_eu[1,  2] q_vv[1,  2] 1.0e-3
+@test_approx_eq_eps q_eu[2,  2] q_vv[2,  2] 1.0e-3
+@test_approx_eq_eps q_eu[3,  2] q_vv[3,  2] 1.0e-3
+@test_approx_eq_eps q_eu[4,  2] q_vv[4,  2] 1.0e-3
+
+@test_approx_eq_eps q_pv[1,n+1] q_vv[1,n+1] 1.0e-4
+@test_approx_eq_eps q_pv[2,n+1] q_vv[2,n+1] 1.0e-4
+@test_approx_eq_eps q_pv[3,n+1] q_vv[3,n+1] 1.0e-4
+@test_approx_eq_eps q_pv[4,n+1] q_vv[4,n+1] 1.0e-4
+
+# @test_approx_eq_eps q_lf[1,n+1] q_vv[1,n+1] 1.0e-4
+# @test_approx_eq_eps q_lf[2,n+1] q_vv[2,n+1] 1.0e-4
+# @test_approx_eq_eps q_lf[3,n+1] q_vv[3,n+1] 1.0e-4
+# @test_approx_eq_eps q_lf[4,n+1] q_vv[4,n+1] 1.0e-4
 
 using Winston
-plot(q[1,:],q[2,:],"r-", q[1,1:20:n],q[2,1:20:n],"ro",
-     q[3,:],q[4,:],"g--",q[3,1:20:n],q[4,1:20:n],"gs")
+plot(q_pv[1,:],q_pv[2,:],"r-", q_pv[1,1:20:n],q_pv[2,1:20:n],"ro",
+     q_pv[3,:],q_pv[4,:],"g--",q_pv[3,1:20:n],q_pv[4,1:20:n],"gs")
 xlim(-5.0,7.0)
 ylim(-6.0,6.0)
 savefig("twobody.eps")
