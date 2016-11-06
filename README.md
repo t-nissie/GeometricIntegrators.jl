@@ -19,7 +19,16 @@ Winston (https://github.com/nolta/Winston.jl),
     $ cd src/
     $ julia MultipleTimeStepIntegrators.jl
 
-an example plot of MultipleTimeStepIntegrators.eps .
+gives you an example plot of `MultipleTimeStepIntegrators.eps`.
+
+### Two body problem
+`src/twobody.jl` is an example of two body problem.
+Execute `twobody.jl`, then you will get `twobody.eps`.
+
+![twobody](https://raw.githubusercontent.com/t-nissie/MultipleTimeStepIntegrators.jl/master/docs/twobody.jpg "two body problem")
+
+FIG. 1. Trajectories of two bodies with masses M=2 and m=1.
 
 ## Usage
 Prepare arrays of functions qdot and pdot.
+
