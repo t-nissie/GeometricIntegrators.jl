@@ -1,6 +1,6 @@
 #!/usr/bin/env julia
 ##
-using MultipleTimeStepIntegrators
+using GeometricIntegrators
 using Base.Test
 
 function energy{T<:AbstractFloat}(q::Array{T,2},

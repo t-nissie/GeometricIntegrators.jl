@@ -1,6 +1,6 @@
 #!/usr/bin/env julia
 ##
-using MultipleTimeStepIntegrators
+using GeometricIntegrators
 using Base.Test
 
 M = 2.0
