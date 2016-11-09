@@ -67,8 +67,8 @@ function        leapfrog{T<:AbstractFloat}(qdot,
                                               p::Array{T,1},
                                               t::AbstractFloat,
                                               h::AbstractFloat)
-    q_next = q + h .* map(f -> f(p), qdot) + h^2 .* map(f -> f(q), pdot) / 2
-    p_next = p + h .* (map(f -> f(q), pdot) + map(f -> f(q_next), pdot)) / 2
+    q_next = q      + h   .* map(f -> f(p),      qdot)
+    p_next = p      + h   .* map(f -> f(q_next), pdot)
     return t + h, q_next, p_next
 end
 
@@ -92,7 +92,7 @@ function time_evolution{T<:AbstractFloat}(method,
     return t,q,p
 end
 
-export euler, velocity_verlet, position_verlet, leapfrog, time_evolution
+export euler, velocity_verlet, position_verlet, leapfrog, leapfrog2, time_evolution
 end
 
 if isdefined(:PROGRAM_FILE) && PROGRAM_FILE == basename(@__FILE__)
