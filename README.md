@@ -22,9 +22,13 @@ Winston (https://github.com/nolta/Winston.jl),
 
 gives you an example plot of `MultipleTimeStepIntegrators.eps`.
 
+### Harmonic oscillator
+`src/harmonic_oscillator.jl` is an example of one-dimensional harmonic oscillator.
+Execute `harmonic_oscillator.jl`, then you will get `harmonic_oscillator_??.eps`.
+
 ### Two body problem
 `src/twobody.jl` is an example of two body problem.
-Execute `twobody.jl`, then you will get `twobody.eps` as shown in Fig. 1.
+Execute `twobody.jl`, then you will get `twobody_??.eps` as shown in Fig. 1.
 
 ![twobody](https://raw.githubusercontent.com/t-nissie/MultipleTimeStepIntegrators.jl/master/docs/twobody.jpg "two body problem")
 
