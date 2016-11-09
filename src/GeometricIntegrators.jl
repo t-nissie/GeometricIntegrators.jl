@@ -15,6 +15,7 @@
 #   分子シミュレーション研究会会誌《アンサンブル》
 #   Vol.11, No.1, January 2009（通巻45号）(in Japanese).
 # * https://en.wikipedia.org/wiki/Geometric_integrator
+# * https://en.wikipedia.org/wiki/Semi-implicit_Euler_method
 # * https://en.wikipedia.org/wiki/Leapfrog_integration
 # * https://github.com/timothyrenner/RungeKutta.jl
 ##
@@ -28,6 +29,17 @@ function           euler{T<:AbstractFloat}(qdot,   # It was qdot::Array{Function
                                               h::AbstractFloat)
     q_next = q      + h   .* map(f -> f(p), qdot)
     p_next = p      + h   .* map(f -> f(q), pdot)
+    return t + h, q_next, p_next
+end
+
+function symplectic_euler{T<:AbstractFloat}(qdot,
+                                            pdot,
+                                              q::Array{T,1},
+                                              p::Array{T,1},
+                                              t::AbstractFloat,
+                                              h::AbstractFloat)
+    q_next = q      + h   .* map(f -> f(p),      qdot)
+    p_next = p      + h   .* map(f -> f(q_next), pdot)
     return t + h, q_next, p_next
 end
 
