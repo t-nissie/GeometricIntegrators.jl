@@ -1,14 +1,14 @@
 #
-# MultipleTimeStepIntegrators.jl: multiple-time-step (MTS) integrators in Julia
+# GeometricIntegrators.jl: multiple-time-step (MTS) integrators in Julia
 # Copyright (C) 2016 Takeshi Nishimatsu
 #
 # License: GPLv3
-# Setup: Pkg.clone("git://github.com/t-nissie/MultipleTimeStepIntegrators.jl.git")
+# Setup: Pkg.clone("git://github.com/t-nissie/GeometricIntegrators.jl.git")
 # Example: An example is in the end of this file.
 #          If you are using Julia-0.5 or higher and
 #          Winston (https://github.com/nolta/Winston.jl),
-#          "julia MultipleTimeStepIntegrators.jl" gives you
-#          a plot of MultipleTimeStepIntegrators.eps .
+#          "julia GeometricIntegrators.jl" gives you
+#          a plot of GeometricIntegrators.eps .
 # References:
 # Ref1. 奥村久士:『分子動力学シミュレーションにおける温度・圧力制御
 #       第2回:シンプレクティック分子動力学法と能勢・ポアンカレ熱浴』，
@@ -24,7 +24,7 @@
 # Ref4. https://en.wikipedia.org/wiki/Leapfrog_integration
 # Ref5. https://github.com/timothyrenner/RungeKutta.jl
 ##
-module MultipleTimeStepIntegrators
+module GeometricIntegrators
 
 function           euler{T<:AbstractFloat}(qdot,   # It was qdot::Array{Function,1}.
                                            pdot,
@@ -96,7 +96,7 @@ export euler, velocity_verlet, position_verlet, leapfrog, leapfrog2, time_evolut
 end
 
 if isdefined(:PROGRAM_FILE) && PROGRAM_FILE == basename(@__FILE__)
-   using MultipleTimeStepIntegrators
+   using GeometricIntegrators
 
    function energy{T<:AbstractFloat}(q::Array{T,2},
                                      p::Array{T,2}, m, k, n::Integer)
@@ -127,5 +127,5 @@ if isdefined(:PROGRAM_FILE) && PROGRAM_FILE == basename(@__FILE__)
     using Winston   # It takes some time.
     plot(t, q[1,:], t, p[1,:], t, q[2,:], t, p[2,:], t, e[:])
     #ylim(-2.5,2.5)
-    savefig("MultipleTimeStepIntegrators.eps")
+    savefig("GeometricIntegrators.eps")
 end
