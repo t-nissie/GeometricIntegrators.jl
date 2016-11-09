@@ -1,5 +1,5 @@
 #
-# GeometricIntegrators.jl: multiple-time-step (MTS) integrators in Julia
+# GeometricIntegrators.jl: geometric integrators in Julia
 # Copyright (C) 2016 Takeshi Nishimatsu
 #
 # License: GPLv3
@@ -10,19 +10,13 @@
 #          "julia GeometricIntegrators.jl" gives you
 #          a plot of GeometricIntegrators.eps .
 # References:
-# Ref1. 奥村久士:『分子動力学シミュレーションにおける温度・圧力制御
-#       第2回:シンプレクティック分子動力学法と能勢・ポアンカレ熱浴』，
-#       分子シミュレーション研究会会誌《アンサンブル》
-#       Vol.11, No.1, January 2009（通巻45号）(in Japanese).
-# Ref2. M. Tuckerman, B. J. Berne, and G. J. Martyna:
-#       "Reversible multiple time scale molecular dynamics",
-#       J. Chem. Phys. 97, 1990 (1992).
-# Ref3. Paul F. Batcho and Tamar Schlick:
-#       "Special stability advantages of position-Verlet over
-#       velocity-Verlet in multiple-time step integration",
-#       J. Chem. Phys. 115, 4019 (2001).
-# Ref4. https://en.wikipedia.org/wiki/Leapfrog_integration
-# Ref5. https://github.com/timothyrenner/RungeKutta.jl
+# * 奥村久士:『分子動力学シミュレーションにおける温度・圧力制御
+#   第2回:シンプレクティック分子動力学法と能勢・ポアンカレ熱浴』，
+#   分子シミュレーション研究会会誌《アンサンブル》
+#   Vol.11, No.1, January 2009（通巻45号）(in Japanese).
+# * https://en.wikipedia.org/wiki/Geometric_integrator
+# * https://en.wikipedia.org/wiki/Leapfrog_integration
+# * https://github.com/timothyrenner/RungeKutta.jl
 ##
 module GeometricIntegrators
 
