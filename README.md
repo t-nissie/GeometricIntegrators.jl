@@ -1,6 +1,7 @@
 GeometricIntegrators.jl
 ==============================
-Geometric integrators (Euler, velocity-Verlet, position-Verlet and leapfrog) in Julia
+[Geometric integrators](https://en.wikipedia.org/wiki/Geometric_integrator)
+(Euler, symplectic-Euler, velocity-Verlet, position-Verlet and leapfrog) in Julia
 
 You can use this module of GeometricIntegrators with Julia-0.4.x and Julia-0.5.x.
 
