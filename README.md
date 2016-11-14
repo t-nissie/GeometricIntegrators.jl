@@ -35,5 +35,10 @@ Execute `twobody.jl`, then you will get `twobody_??.eps` as shown in Fig. 1.
 
 FIG. 1. Trajectories of two bodies with masses M=2 and m=1.
 
+### Test
+Clone, test, then remove this package:
+
+    Pkg.clone("git://github.com/t-nissie/GeometricIntegrators.jl.git"); Pkg.test("GeometricIntegrators"); Pkg.rm("GeometricIntegrators")
+
 ## Usage
 Prepare arrays of functions qdot and pdot.
