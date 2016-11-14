@@ -1,5 +1,5 @@
 GeometricIntegrators.jl
-==============================
+=======================
 [Geometric integrators](https://en.wikipedia.org/wiki/Geometric_integrator)
 (Euler, symplectic-Euler, velocity-Verlet, position-Verlet and leapfrog) in Julia
 
