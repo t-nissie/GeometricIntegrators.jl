@@ -24,11 +24,11 @@ Winston (https://github.com/nolta/Winston.jl),
 gives you an example plot of `GeometricIntegrators.eps`.
 
 ### Harmonic oscillator
-`src/harmonic_oscillator.jl` is an example of one-dimensional harmonic oscillator.
+`test/harmonic_oscillator.jl` is an example of one-dimensional harmonic oscillator.
 Execute `harmonic_oscillator.jl`, then you will get `harmonic_oscillator_??.eps`.
 
 ### Two body problem
-`src/twobody.jl` is an example of two body problem.
+`test/twobody.jl` is an example of two body problem.
 Execute `twobody.jl`, then you will get `twobody_??.eps` as shown in Fig. 1.
 
 ![twobody](https://raw.githubusercontent.com/t-nissie/GeometricIntegrators.jl/master/docs/twobody.jpg "two body problem")
