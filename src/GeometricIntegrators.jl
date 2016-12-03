@@ -18,11 +18,13 @@
 # * https://en.wikipedia.org/wiki/Semi-implicit_Euler_method
 # * https://en.wikipedia.org/wiki/Leapfrog_integration
 # * https://github.com/timothyrenner/RungeKutta.jl
+# * http://qiita.com/t_nissie/items/dbe5aced4ef810ae5f70
 ##
 module GeometricIntegrators
 
-function            euler{T<:AbstractFloat}(qdot,   # It was qdot::Array{Function,1}.
-                                            pdot,
+function            euler{F1<:Function, F2<:Function,
+                          T<:AbstractFloat}(qdot::Array{F1,1},
+                                            pdot::Array{F2,1},
                                               q::Array{T,1},
                                               p::Array{T,1},
                                               h::T)
@@ -31,8 +33,9 @@ function            euler{T<:AbstractFloat}(qdot,   # It was qdot::Array{Functio
     return q_next, p_next
 end
 
-function symplectic_euler{T<:AbstractFloat}(qdot,
-                                            pdot,
+function symplectic_euler{F1<:Function, F2<:Function,
+                          T<:AbstractFloat}(qdot::Array{F1,1},
+                                            pdot::Array{F2,1},
                                               q::Array{T,1},
                                               p::Array{T,1},
                                               h::T)
@@ -41,8 +44,9 @@ function symplectic_euler{T<:AbstractFloat}(qdot,
     return q_next, p_next
 end
 
-function  velocity_verlet{T<:AbstractFloat}(qdot,
-                                            pdot,
+function  velocity_verlet{F1<:Function, F2<:Function,
+                          T<:AbstractFloat}(qdot::Array{F1,1},
+                                            pdot::Array{F2,1},
                                               q::Array{T,1},
                                               p::Array{T,1},
                                               h::T)
@@ -52,8 +56,9 @@ function  velocity_verlet{T<:AbstractFloat}(qdot,
     return q_next, p_next
 end
 
-function  position_verlet{T<:AbstractFloat}(qdot,
-                                            pdot,
+function  position_verlet{F1<:Function, F2<:Function,
+                          T<:AbstractFloat}(qdot::Array{F1,1},
+                                            pdot::Array{F2,1},
                                               q::Array{T,1},
                                               p::Array{T,1},
                                               h::T)
@@ -63,8 +68,9 @@ function  position_verlet{T<:AbstractFloat}(qdot,
     return q_next, p_next
 end
 
-function         leapfrog{T<:AbstractFloat}(qdot,
-                                            pdot,
+function         leapfrog{F1<:Function, F2<:Function,
+                          T<:AbstractFloat}(qdot::Array{F1,1},
+                                            pdot::Array{F2,1},
                                               q::Array{T,1},
                                               p::Array{T,1},
                                               h::T)
@@ -73,9 +79,10 @@ function         leapfrog{T<:AbstractFloat}(qdot,
     return q_next, p_next
 end
 
-function   time_evolution{T<:AbstractFloat}(method::Function,
-                                            qdot,
-                                            pdot,
+function   time_evolution{F1<:Function, F2<:Function,
+                          T<:AbstractFloat}(method::Function,
+                                            qdot::Array{F1,1},
+                                            pdot::Array{F2,1},
                                              q0::Array{T,1},
                                              p0::Array{T,1},
                                              t0::T,
