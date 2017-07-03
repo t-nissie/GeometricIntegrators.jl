@@ -33,9 +33,9 @@ t_pv,q_pv,p_pv = time_evolution(position_verlet, qdot, pdot, q0, p0,     t0, h, 
 energy_pv = energy(q_pv,p_pv,m,k,n)
 t_lf,q_lf,p_lf = time_evolution(       leapfrog, qdot, pdot, q0, p_half, t0, h, n)
 
-@test_approx_eq_eps q_eu[1,n+1] q_vv[1,n+1] 1.0e-1
-@test_approx_eq_eps q_pv[1,n+1] q_vv[1,n+1] 1.0e-4
-@test_approx_eq_eps q_lf[1,n+1] q_vv[1,n+1] 1.0e-14
+@test q_eu[1,n+1] ≈ q_vv[1,n+1] atol=1.0e-1
+@test q_pv[1,n+1] ≈ q_vv[1,n+1] atol=1.0e-4
+@test q_lf[1,n+1] ≈ q_vv[1,n+1] atol=1.0e-14
 
 using Winston
 plot(t_eu, q_eu[1,:], t_eu, p_eu[1,:], t_eu, energy_eu[:])
