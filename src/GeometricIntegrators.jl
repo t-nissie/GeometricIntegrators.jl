@@ -22,72 +22,72 @@
 ##
 module GeometricIntegrators
 
-function            euler{F1<:Function, F2<:Function,
-                          T<:AbstractFloat}(qdot::Array{F1,1},
-                                            pdot::Array{F2,1},
-                                              q::Array{T,1},
-                                              p::Array{T,1},
-                                              h::T)
+function            euler(qdot::Array{F1,1},
+                          pdot::Array{F2,1},
+                          q::Array{T,1},
+                          p::Array{T,1},
+                          h::T) where {F1<:Function,
+                                       F2<:Function, T<:AbstractFloat}
     q_next = q      + h   .* map(f -> f(p), qdot)
     p_next = p      + h   .* map(f -> f(q), pdot)
     return q_next, p_next
 end
 
-function symplectic_euler{F1<:Function, F2<:Function,
-                          T<:AbstractFloat}(qdot::Array{F1,1},
-                                            pdot::Array{F2,1},
-                                              q::Array{T,1},
-                                              p::Array{T,1},
-                                              h::T)
+function symplectic_euler(qdot::Array{F1,1},
+                          pdot::Array{F2,1},
+                          q::Array{T,1},
+                          p::Array{T,1},
+                          h::T) where {F1<:Function,
+                                       F2<:Function, T<:AbstractFloat}
     q_next = q      + h   .* map(f -> f(p),      qdot)
     p_next = p      + h   .* map(f -> f(q_next), pdot)
     return q_next, p_next
 end
 
-function  velocity_verlet{F1<:Function, F2<:Function,
-                          T<:AbstractFloat}(qdot::Array{F1,1},
-                                            pdot::Array{F2,1},
-                                              q::Array{T,1},
-                                              p::Array{T,1},
-                                              h::T)
+function  velocity_verlet(qdot::Array{F1,1},
+                          pdot::Array{F2,1},
+                          q::Array{T,1},
+                          p::Array{T,1},
+                          h::T) where {F1<:Function,
+                                       F2<:Function, T<:AbstractFloat}
     p_half = p      + h/2 .* map(f -> f(q),      pdot)
     q_next = q      + h   .* map(f -> f(p_half), qdot)
     p_next = p_half + h/2 .* map(f -> f(q_next), pdot)
     return q_next, p_next
 end
 
-function  position_verlet{F1<:Function, F2<:Function,
-                          T<:AbstractFloat}(qdot::Array{F1,1},
-                                            pdot::Array{F2,1},
-                                              q::Array{T,1},
-                                              p::Array{T,1},
-                                              h::T)
+function  position_verlet(qdot::Array{F1,1},
+                          pdot::Array{F2,1},
+                          q::Array{T,1},
+                          p::Array{T,1},
+                          h::T) where {F1<:Function,
+                                       F2<:Function, T<:AbstractFloat}
     q_half = q      + h/2 .* map(f -> f(p),      qdot)
     p_next = p      + h   .* map(f -> f(q_half), pdot)
     q_next = q_half + h/2 .* map(f -> f(p_next), qdot)
     return q_next, p_next
 end
 
-function         leapfrog{F1<:Function, F2<:Function,
-                          T<:AbstractFloat}(qdot::Array{F1,1},
-                                            pdot::Array{F2,1},
-                                              q::Array{T,1},
-                                              p::Array{T,1},
-                                              h::T)
+function         leapfrog(qdot::Array{F1,1},
+                          pdot::Array{F2,1},
+                          q::Array{T,1},
+                          p::Array{T,1},
+                          h::T) where {F1<:Function,
+                                       F2<:Function, T<:AbstractFloat}
     q_next = q      + h   .* map(f -> f(p),      qdot)
     p_next = p      + h   .* map(f -> f(q_next), pdot)
     return q_next, p_next
 end
 
-function   time_evolution{F1<:Function, F2<:Function,
-                          T<:AbstractFloat}(method::Function,
-                                            qdot::Array{F1,1},
-                                            pdot::Array{F2,1},
-                                             q0::Array{T,1},
-                                             p0::Array{T,1},
-                                             t0::T,
-                                              h::T,
-                                              n::Integer)
+function   time_evolution(method::Function,
+                          qdot::Array{F1,1},
+                          pdot::Array{F2,1},
+                          q0::Array{T,1},
+                          p0::Array{T,1},
+                          t0::T,
+                          h::T,
+                          n::Integer) where {F1<:Function,
+                                             F2<:Function, T<:AbstractFloat}
     q = zeros(length(q0), n+1)
     p = zeros(length(p0), n+1)
     t = zeros(1, n+1)
@@ -104,11 +104,12 @@ end
 export euler, velocity_verlet, position_verlet, leapfrog, leapfrog2, time_evolution
 end
 
-if isdefined(:PROGRAM_FILE) && PROGRAM_FILE == basename(@__FILE__)
-   using GeometricIntegrators
+if PROGRAM_FILE == basename(@__FILE__)
+   using .GeometricIntegrators, LinearAlgebra
+   # The preceded dot indicates GeometricIntegrators is a local module.
 
-   function energy{T<:AbstractFloat}(q::Array{T,2},
-                                     p::Array{T,2}, m::T, k::T, n::Integer)
+   function energy(q::Array{T,2},
+                   p::Array{T,2}, m::T, k::T, n::Integer) where {T<:AbstractFloat}
         e = zeros(Float64, n+1)
         for i in 1:n+1
             e[i] = dot(p[:,i],p[:,i])/2/m +
