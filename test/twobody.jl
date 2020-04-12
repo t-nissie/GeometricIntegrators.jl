@@ -1,7 +1,7 @@
 #!/usr/bin/env julia
 ##
 using GeometricIntegrators
-using Base.Test
+using Test
 
 M = 2.0
 m = 1.0

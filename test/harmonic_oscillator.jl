@@ -1,10 +1,11 @@
 #!/usr/bin/env julia
 ##
 using GeometricIntegrators
-using Base.Test
+using Test
+using LinearAlgebra
 
-function energy{T<:AbstractFloat}(q::Array{T,2},
-                                  p::Array{T,2}, m, k, n::Integer)
+function energy(q::Array{T,2},
+                p::Array{T,2}, m, k, n::Integer) where {T<:AbstractFloat}
     e = zeros(Float64, n+1)
     for i in 1:n+1
         e[i] = dot(p[:,i],p[:,i])/2/m +
