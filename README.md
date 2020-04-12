@@ -3,19 +3,19 @@ GeometricIntegrators.jl
 [Geometric integrators](https://en.wikipedia.org/wiki/Geometric_integrator)
 (Euler, symplectic-Euler, velocity-Verlet, position-Verlet and leapfrog) in Julia
 
-You can use this module of GeometricIntegrators with Julia-0.4.x and Julia-0.5.x.
+You can use this module of GeometricIntegrators with Julia-1.4.
 
 Its homepage is https://github.com/t-nissie/GeometricIntegrators.jl .
 
 ## Setup
 There are no dependencies, just install with
 
-    Pkg.clone("git://github.com/t-nissie/GeometricIntegrators.jl.git")
+    using Pkg; Pkg.add(PackageSpec(url="https://github.com/t-nissie/GeometricIntegrators.jl", rev="master"));
 
 ## Example
 ### In-line example
 An example is in the end of `src/GeometricIntegrators.jl`.
-If you are using Julia-0.5 or higher and
+If you are using Julia-1.4 and
 Winston (https://github.com/nolta/Winston.jl),
 
     $ cd src/
@@ -38,7 +38,7 @@ FIG. 1. Trajectories of two bodies with masses M=2 and m=1.
 ### Test
 Clone, test, then remove this package:
 
-    Pkg.clone("git://github.com/t-nissie/GeometricIntegrators.jl.git"); Pkg.test("GeometricIntegrators"); Pkg.rm("GeometricIntegrators")
+    using Pkg; Pkg.add(PackageSpec(url="https://github.com/t-nissie/GeometricIntegrators.jl", rev="master")); Pkg.test("GeometricIntegrators"); Pkg.rm("GeometricIntegrators")
 
 ## Usage
 Prepare arrays of functions qdot and pdot.
