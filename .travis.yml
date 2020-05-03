@@ -8,4 +8,4 @@ codecov: true
 coveralls: true
 
 script:
-  - julia --project -e 'using Pkg; Pkg.test()'
+  - xvfb-run julia --project -e 'using Pkg; Pkg.test()'
