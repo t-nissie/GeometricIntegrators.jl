@@ -8,7 +8,7 @@ You can use this module of GeometricIntegrators with Julia-1.4.
 Its homepage is https://github.com/t-nissie/GeometricIntegrators.jl .
 
 GeometricIntegrators.jl is under continuous integration at Travis CI:
-[![Build Status](https://travis-ci.org/t-nissie/GeometricIntegrators.jl.svg?branch=master](https://travis-ci.org/t-nissie/GeometricIntegrators.jl)
+[![Build Status](https://travis-ci.org/t-nissie/GeometricIntegrators.jl.svg?branch=master)](https://travis-ci.org/t-nissie/GeometricIntegrators.jl)
 
 ## Setup
 There are no dependencies, just install with
