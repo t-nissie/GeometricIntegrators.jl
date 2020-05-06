@@ -10,6 +10,9 @@ Its homepage is https://github.com/t-nissie/GeometricIntegrators.jl .
 GeometricIntegrators.jl is under continuous integration at Travis CI:
 [![Build Status](https://travis-ci.org/t-nissie/GeometricIntegrators.jl.svg?branch=master)](https://travis-ci.org/t-nissie/GeometricIntegrators.jl)
 
+Coverrage report:
+[![Coverage Status](https://coveralls.io/repos/github/t-nissie/GeometricIntegrators.jl/badge.svg?branch=master)](https://coveralls.io/github/t-nissie/GeometricIntegrators.jl?branch=master)
+
 ## Setup
 There are no dependencies, just install with
 
