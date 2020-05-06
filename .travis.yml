@@ -8,4 +8,4 @@ julia:
 coveralls: true
 
 script:
-  - xvfb-run julia --project -e 'using Pkg; Pkg.test(coverage=true)'
+  - xvfb-run julia --project --code-coverage -e 'using Pkg; Pkg.test(coverage=true)'
