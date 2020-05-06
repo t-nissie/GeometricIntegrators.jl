@@ -2,8 +2,6 @@
 #                https://github.com/JuliaLang/Example.jl/blob/master/.travis.yml
 ## 
 language: julia
-julia:
-  - nightly
 
 coveralls: true
 
