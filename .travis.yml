@@ -9,3 +9,5 @@ coveralls: true
 
 script:
   - xvfb-run julia --project --code-coverage -e 'using Pkg; Pkg.test(coverage=true)'
+  - julia --code-coverage=user etc/travis-coverage.jl
+  - julia etc/travis-coverage.jl
