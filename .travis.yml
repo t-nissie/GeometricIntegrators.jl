@@ -4,7 +4,7 @@ julia:
   - nightly
   - 1.4
 
-codecov: true
+#codecov: true
 coveralls: true
 
 script:
