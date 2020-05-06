@@ -8,6 +8,4 @@ julia:
 coveralls: true
 
 script:
-  - xvfb-run julia --project --code-coverage -e 'using Pkg; Pkg.test(coverage=true)'
-  - julia --code-coverage=user etc/travis-coverage.jl
-  - julia etc/travis-coverage.jl
+  - xvfb-run julia --project --code-coverage -e 'using Pkg; Pkg.test(coverage=true); using Coverage; cov_res=process_folder(); Coveralls.submit(cov_res)'
