@@ -3,12 +3,12 @@ GeometricIntegrators.jl
 [Geometric integrators](https://en.wikipedia.org/wiki/Geometric_integrator)
 (Euler, symplectic-Euler, velocity-Verlet, position-Verlet and leapfrog) in Julia
 
-You can use this module of GeometricIntegrators with Julia-1.4.
+You can use this module of GeometricIntegrators with Julia-1.4 and Julia-1.5.
 
 Its homepage is https://github.com/t-nissie/GeometricIntegrators.jl .
 
 GeometricIntegrators.jl is under continuous integration at Travis CI:
-[![Build Status](https://travis-ci.org/t-nissie/GeometricIntegrators.jl.svg?branch=master)](https://travis-ci.org/t-nissie/GeometricIntegrators.jl)
+[![Build Status](https://travis-ci.com/t-nissie/GeometricIntegrators.jl.svg?branch=master)](https://travis-ci.com/github/t-nissie/GeometricIntegrators.jl)
 
 Coverrage report:
 [![Coverage Status](https://coveralls.io/repos/github/t-nissie/GeometricIntegrators.jl/badge.svg?branch=master)](https://coveralls.io/github/t-nissie/GeometricIntegrators.jl?branch=master)
