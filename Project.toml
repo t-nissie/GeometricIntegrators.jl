@@ -3,6 +3,9 @@ uuid = "3b1434a0-2ceb-40dc-ae01-813bb758c12c"
 authors = ["Takeshi Nishimatsu <t_nissie@yahoo.co.jp>"]
 version = "0.1.0"
 
+[deps]
+Winston = "bd07be1c-e76f-5ff0-9c0b-f51ef45303c6"
+
 [extras]
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"

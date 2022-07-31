@@ -101,7 +101,7 @@ function   time_evolution(method::Function,
     return t,q,p
 end
 
-export euler, velocity_verlet, position_verlet, leapfrog, leapfrog2, time_evolution
+export euler, velocity_verlet, position_verlet, leapfrog, time_evolution
 end
 
 if PROGRAM_FILE == basename(@__FILE__)
